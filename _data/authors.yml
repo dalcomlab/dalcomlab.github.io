@@ -77,3 +77,23 @@ author2:
 
   picture:           https://avatars.githubusercontent.com/u/97577230?v=4
   github:            jchong-dalcomlab
+
+author3:
+  name:              bc Yoo
+  email:             yoo@dalcomlab.com
+  about:             |
+    DalcomLab CTO, FLEXUS devleoper
+
+
+  picture:           https://avatars.githubusercontent.com/u/97580457?v=4
+  github:            yoo-dalcomlab
+
+author4:
+  name:              kj Lee
+  email:             lkj@dalcomlab.com
+  about:             |
+    DalcomLab developer, FLEXUS devleoper
+
+
+  picture:           https://avatars.githubusercontent.com/u/97580572?v=4
+  github:            lkj-dalcomlab
