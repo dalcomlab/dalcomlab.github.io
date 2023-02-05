@@ -513,7 +513,7 @@ http-method 혹은 http-method-omission을 각각 복수개 설정 할 수 있�
 
 
 <script src="https://utteranc.es/client.js"
-        repo="jchong-dalcomlab/dalcomlab.github.io"
+        repo="dalcomlab/dalcomlab.github.io"
         issue-term="title"
         theme="github-light"
         crossorigin="anonymous"
