@@ -346,7 +346,10 @@ plugins:
   - jekyll-sitemap
   - jekyll-titles-from-headings
   - jekyll-include-cache
-  - jekyll-last-modified-at
+  # `jekyll-last-modified-at` is not on the GitHub Pages plugin whitelist
+  # (see https://pages.github.com/versions/), so enabling it makes the
+  # built-in Pages builder reject the build. Leave it commented out.
+  # - jekyll-last-modified-at
 
 
 # SEO Tag
