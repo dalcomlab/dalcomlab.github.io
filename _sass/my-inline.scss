@@ -1,4 +1,192 @@
 // You can add CSS rules here that will be inlined into each document.
-// .sidebar a {
-//   text-shadow: rgba(0, 0, 0, 0.25) 0.1rem 0.1rem 0.15rem;
-// }
+.sidebar a {
+  text-shadow: rgba(0, 0, 0, 0.25) 0.1rem 0.1rem 0.15rem;
+}
+
+.post-title,
+.page-title {
+  word-break: keep-all;
+}
+
+// Sidebar Modification
+// `.sidebar` stays center-aligned so logo/title/social icons stay centered;
+// the nav block alone is left-aligned for readability of the category tree.
+
+.sidebar {
+  text-align: center;
+}
+
+// Logo: the DalcomLab wordmark is rectangular (777x605). Hydejack's default
+// markup sets width/height to 120x120 which squishes it. Force natural
+// aspect ratio and a smaller footprint.
+.sidebar-about .avatar {
+  width: auto;
+  height: auto;
+  max-width: 88px;
+  max-height: 88px;
+  border-radius: 0;
+  object-fit: contain;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sidebar-sticky {
+  height: 100%;
+  max-height: 100vh;          // never grow past the viewport
+  padding-top: 5%;
+  position: fixed;
+  overflow-y: auto;           // scroll inside the sidebar when expanded
+  overflow-x: hidden;
+  scrollbar-width: thin;       // Firefox
+  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+  }
+}
+
+.sidebar-nav {
+  text-align: left;
+  padding-left: 1.5rem;
+
+  ul {
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
+
+// Menu colors: bright emerald so the text is readable even before hover.
+// Hover bumps to a near-mint shade. A stronger text-shadow keeps it legible
+// over varied background photos. !important beats Hydejack's link rules.
+.sidebar-nav-item,
+.sidebar-nav-item:visited,
+.sidebar-nav-subitem,
+.sidebar-nav-subitem:visited {
+  color: #34d399 !important;  // emerald-400 — brighter resting state
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.sidebar-nav-item:hover,
+.sidebar-nav-subitem:hover {
+  color: #a7f3d0 !important;  // emerald-200 — clear hover lift
+}
+
+.sidebar-nav-item {
+  padding: .25rem 0;
+  width: 100%;
+}
+
+// Submenu items: smaller, dimmer, indented — clearly subordinate to parent.
+.sidebar-nav-subitem {
+  width: 100%;
+  padding: .15rem 0;
+  display: inline-block;
+  font-size: 0.82em;
+  font-weight: 400;
+  opacity: 0.85;
+  line-height: 1.35;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.sidebar-nav-subitem:last-child {
+  margin: 0 0 4px 0;
+}
+
+.list-wrapper {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.list-body {
+  margin: .2rem 0 .5rem .25rem;
+  text-align: left;
+  padding-left: 2.5rem;           // deeper indent under the parent category
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+.sidebar-about {
+  >a.sidebar-title {
+    &::after {
+      width: 9rem;
+    }
+  }
+}
+
+// Submenu Insertion
+
+.spread-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  text-align: right;
+  width: 100%;
+}
+
+.spread-btn:hover {
+  color: white;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]~ul {
+  height: 0;
+  transform: scaleY(0);
+  transition: transform .2s ease-out;
+}
+
+input[type=checkbox]:checked~ul {
+  height: 100%;
+  list-style: none;
+  transform-origin: top;
+  transform: scaleY(1);
+  transition: transform .2s ease-out;
+}
+
+
+// Prevent FOUC
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.4;
+  }
+
+  60% {
+    opacity: 0.6;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.no-fouc {
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: fadeIn;
+  opacity: 0;
+  // This line forces the browser to set the opacity to 1 after executing/finishing the animation
+  opacity: 1;
+}

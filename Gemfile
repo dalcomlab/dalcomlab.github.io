@@ -1,36 +1,23 @@
 source "https://rubygems.org"
 
-# Hello! This is where you manage which Jekyll version is used to run.
-# When you want to use a different version, change it below, save the
-# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
+# Local-preview Gemfile for Hydejack Pro 9.2.1.
 #
-#     bundle exec jekyll serve
+# The site is built by GitHub Pages' default builder (which uses its own
+# `github-pages` gem environment and ignores this Gemfile). This Gemfile
+# exists only so you can run `bundle exec jekyll serve` locally to preview
+# changes before pushing.
 #
-# This will help ensure the proper Jekyll version is running.
-# Happy Jekylling!
-gem "jekyll", "~> 4.1"
+# To use:
+#   bundle install
+#   bundle exec jekyll serve
 
-gem "jekyll-theme-hydejack", "~> 9.1"
+gem "jekyll", "~> 4.3.0"
 
-# IMPORTANT: The followign gem is used to compile math formulas to 
-# KaTeX during site building.
-#
-# There are a couple of things to know about this gem:
-# *  It is not supported on GitHub Pages. 
-#    You have to build the site on your machine before uploading to GitHub,
-#    or use a more permissive cloud building tool such as Netlify.
-# *  You need some kind of JavaScript runtime on your machine.
-#    Usually installing NodeJS will suffice. 
-#    For details, see <https://github.com/kramdown/math-katex#documentation>
-#
-# If you're using the MathJax math engine instead, free to remove the line below:
-gem "kramdown-math-katex"
-
-# A JavaScript runtime for ruby that helps with running the katex gem above.
-gem "duktape"
-
-# Fixes `jekyll serve` in ruby 3
+# Required for `jekyll serve` in Ruby 3
 gem "webrick"
+
+# Uncomment when building with the `--lsi` option for `jekyll build`
+# gem "classifier-reborn"
 
 group :jekyll_plugins do
   gem "jekyll-default-layout"
@@ -45,11 +32,10 @@ group :jekyll_plugins do
   gem "jekyll-titles-from-headings"
   gem "jekyll-include-cache"
 
-  # Non-Github Pages plugins:
+  # Not supported by GitHub Pages' default builder, but harmless here —
+  # locally Jekyll will use it; on GitHub Pages it's just ignored.
   gem "jekyll-last-modified-at"
-  gem "jekyll-compose"
 end
 
 gem 'wdm' if Gem.win_platform?
 gem "tzinfo-data" if Gem.win_platform?
-
