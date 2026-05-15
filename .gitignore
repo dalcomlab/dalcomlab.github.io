@@ -2,3 +2,11 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Bundler (local install paths set by .bundle/config)
+.bundle/
+vendor/

@@ -1,0 +1,20 @@
+{%- comment -%}
+  Comments — Utterances (GitHub Issues based)
+  ============================================
+  The old DalcomLab blog used Utterances on each post via inline <script>;
+  we move it to this central include so the snippet lives in one place
+  and runs for every page that has `comments: true` (set via the posts
+  default in `_config.yml`).
+
+  Setup: comments live as GitHub issues in
+  https://github.com/dalcomlab/dalcomlab.github.io
+  (the `utterances` GitHub App must be installed on that repo).
+{%- endcomment -%}
+
+<script src="https://utteranc.es/client.js"
+        repo="dalcomlab/dalcomlab.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
